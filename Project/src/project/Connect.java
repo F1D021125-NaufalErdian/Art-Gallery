@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -16,9 +17,12 @@ public class Connect {
 
     private static Component rootPane;
     
+    public static ArrayList<String> lukisan = new ArrayList<>();
+    public static ArrayList<String> patung = new ArrayList<>();
+    
     public static Connection getConnection() {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Art-Gallery", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/art-Gallery", "root", "");
             return con;
         } catch (Exception e) {
             // Handle the exception (e.g., log it)
@@ -113,6 +117,29 @@ public class Connect {
             e.printStackTrace();
         }
         return false;
+    }
+    
+    
+    public static void getAllNames(String jenis){
+        Connection con = getConnection();
+        String query = "SELECT nama FROM art WHERE jenis = ?";
+        try(PreparedStatement stmt = con.prepareStatement(query)){
+            stmt.setString(1, jenis);
+            try(ResultSet rs = stmt.executeQuery()){
+                while (rs.next()) {
+                    String nama = rs.getString("nama");
+                    if(jenis == "Lukisan"){
+                        lukisan.add(nama);
+                    }else if(jenis == "Patung"){
+                        patung.add(nama);
+                    }
+                }
+            }catch(Exception e){
+                
+            }
+        }catch(Exception e){
+            
+        }
     }
 }
 
