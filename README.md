@@ -1,1 +1,3 @@
-# Art-Galler/
+# Art-Gallery
+
+## Welcome Frame
