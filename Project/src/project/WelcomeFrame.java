@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package project;
 
 import java.awt.CardLayout;
@@ -11,15 +7,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
-/**
- *
- * @author ASUS
- */
+
 public class WelcomeFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
     CardLayout cardLayout;
     public WelcomeFrame() {
         setResizable(false);
@@ -29,21 +19,20 @@ public class WelcomeFrame extends javax.swing.JFrame {
         CardPanel.add(Login, "Login");
         CardPanel.add(Register, "Register");
         cardLayout = (CardLayout)(CardPanel.getLayout());
-        
     }
     @SuppressWarnings("unchecked")
     
-    public void mouseEnter(JButton panel){
-        panel.addMouseListener(new MouseAdapter(){
+    public void mouseEnter(JButton button){
+        button.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseEntered(MouseEvent e){
-                panel.setForeground(Color.BLUE);
-                panel.setFont(panel.getFont().deriveFont(Font.BOLD));
+                button.setForeground(Color.BLUE);
+                button.setFont(button.getFont().deriveFont(Font.BOLD));
             }
             @Override
             public void mouseExited(MouseEvent e){
-                panel.setForeground(Color.BLACK);
-                panel.setFont(panel.getFont().deriveFont(Font.PLAIN));
+                button.setForeground(Color.BLACK);
+                button.setFont(button.getFont().deriveFont(Font.PLAIN));
             }
         });
     }
@@ -76,7 +65,7 @@ public class WelcomeFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Welcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/component/Women2.png"))); // NOI18N
+        Welcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/component/ezgif.com-resize (1).gif"))); // NOI18N
 
         CardPanel.setLayout(new java.awt.CardLayout());
 
@@ -86,6 +75,7 @@ public class WelcomeFrame extends javax.swing.JFrame {
 
         LoginButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         LoginButton1.setText("Login");
+        LoginButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LoginButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginButton1ActionPerformed(evt);
@@ -175,6 +165,7 @@ public class WelcomeFrame extends javax.swing.JFrame {
 
         RegisterButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RegisterButton.setText("Register");
+        RegisterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterButtonActionPerformed(evt);
